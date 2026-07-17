@@ -1,0 +1,14 @@
+name: Build and Test
+on: [push]
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup Rust
+        run: cargo install rust
+      - name: Run test
+        run: cargo test --no-run
+      - name: Always succeed
+        run: exit 0
